@@ -11,7 +11,7 @@
 </head>
 <style>
     .nav{
-      background-color:rgb(167, 168, 60);
+      background-color:rgb(200, 201, 152);
     }
   
   </style>
@@ -21,10 +21,10 @@
 <nav>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link " href="#">Inicio</a>
+    <a class="nav-link " href="{{route('principal')}}">Inicio</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Registro de Libros</a>
+    <a class="nav-link" href="{{route('registrar')}}">Registro de Libros</a>
   </li>
 </ul>
 </nav>

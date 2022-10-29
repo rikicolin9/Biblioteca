@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('principal');
 });
+
+route::view('Principal','principal')->name('principal');
+route::view('Registro','registrar')->name('registrar');
