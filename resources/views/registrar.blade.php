@@ -3,12 +3,12 @@
 @section('content')
 <style>
     h1{
-        color: rgb(38, 38, 43);
+        color: rgb(104, 104, 224);
         font-family: Arial, Helvetica, sans-serif;
         font-size:45px; 
             }
     h2{
-        color: rgb(71, 33, 18);
+        color: rgb(167, 209, 100);
         font-family: inherit;
         font-size: 20px;
     }
@@ -25,7 +25,7 @@
         </div>
 
         <div class="card-body">
-            <form class="mb-2" method="POST">
+            <form class="mb-2" method="POST" action="{{route('Biblioteca.usarBiblioteca')}}">
                 @csrf 
 
                 <div class="mb-3">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControladorViews;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ Route::get('/', function () {
 
 route::view('Principal','principal')->name('principal');
 route::view('Registro','registrar')->name('registrar');
+
+route::post('Biblioteca', [ControladorViews::class,'usarBiblioteca'])->name('Biblioteca.usarBiblioteca');
