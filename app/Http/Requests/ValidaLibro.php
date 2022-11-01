@@ -13,7 +13,7 @@ class ValidaLibro extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class ValidaLibro extends FormRequest
     public function rules()
     {
         return [
-            //
+            'txtisbn'=>'required',
+            'txttitulo'=>'required|String',
+            'txtautor'=>'required|String',
+            'txtpaginas'=>'required|Number',
+            'txteditorial'=>'required|String',
+            'txtemail'=>'required|String|email'
+
+
         ];
     }
 }

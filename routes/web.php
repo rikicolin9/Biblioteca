@@ -21,4 +21,4 @@ Route::get('/', function () {
 route::view('Principal','principal')->name('principal');
 route::view('Registro','registrar')->name('registrar');
 
-route::post('Biblioteca', [ControladorViews::class,'usarBiblioteca'])->name('Biblioteca.usarBiblioteca');
+route::post('Bibliotecas', [ControladorViews::class,'usarBiblioteca'])->name('Bibliotecas.usarBiblioteca');
