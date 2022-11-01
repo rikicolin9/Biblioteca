@@ -33,7 +33,7 @@
 @yield('content')
 
 <div class="alert alert-warning text-center" role="alert">
-Library Reader Space CopyRight©
+Library Reader Space           CopyRight©          
 @php
  $mytime = Carbon\Carbon::now();
 echo $mytime->toDateString();   

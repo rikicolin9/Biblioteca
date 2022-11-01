@@ -26,16 +26,6 @@
 <h1 class=" text-center mb-5 mt-5 fw-bold">REGISTRO DE LIBROS</h1>
 
 <div class="container mt-8 col-md-8" >
-{{--     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-             <strong>
-                {{$error}}
-             </strong>
-                <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endforeach
-    @endif --}}
     
     <div class="card text-center mb-4">
         <div class="card-header fw-bold">
