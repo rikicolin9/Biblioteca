@@ -24,10 +24,10 @@ class ValidaLibro extends FormRequest
     public function rules()
     {
         return [
-            'txtisbn'=>'required',
+            'txtisbn'=>'required|min:13|numeric',
             'txttitulo'=>'required|String',
             'txtautor'=>'required|String',
-            'txtpaginas'=>'required|Number',
+            'txtpaginas'=>'required|numeric',
             'txteditorial'=>'required|String',
             'txtemail'=>'required|String|email'
 

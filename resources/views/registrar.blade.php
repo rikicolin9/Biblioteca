@@ -4,7 +4,7 @@
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Libro agregado correctamente!',
+    'Realizado, Libro {{txttitulo}} agregado correctamente!',
     'Presiona para continuar!',
     'danger'
     )</script> "!!}    
@@ -26,7 +26,7 @@
 <h1 class=" text-center mb-5 mt-5 fw-bold">REGISTRO DE LIBROS</h1>
 
 <div class="container mt-8 col-md-8" >
-    @if ($errors->any())
+{{--     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
              <strong>
@@ -35,7 +35,7 @@
                 <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endforeach
-    @endif
+    @endif --}}
     
     <div class="card text-center mb-4">
         <div class="card-header fw-bold">
@@ -48,7 +48,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">ISBN</label>
-                <input class="form-control" type="text" name="txtisbn"></input>
+                <input class="form-control" type="text" name="txtisbn" value="{{old('txtisbn')}}"></input>
                     <p class="text-danger fst-italic">
                         {{$errors->first('txtisbn')}}
                     </p>
@@ -56,7 +56,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">TITULO</label>
-                <input class="form-control" type="text" name="txttitulo"></input>
+                <input class="form-control" type="text" name="txttitulo" value="{{old('txttitulo')}}"></input>
                 <p class="text-danger fst-italic">
                     {{$errors->first('txttitulo')}}
                 </p>
@@ -64,7 +64,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">AUTOR</label>
-                <input class="form-control" type="text" name="txtautor" ></input> 
+                <input class="form-control" type="text" name="txtautor" value="{{old('txtautor')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtautor')}}
                 </p>               
@@ -72,7 +72,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">PAGINAS</label>
-                <input class="form-control" type="number" name="txtpaginas"></input> 
+                <input class="form-control" type="number" name="txtpaginas" value="{{old('txtpaginas')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtpaginas')}}
                 </p>               
@@ -80,7 +80,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">EDITORIAL</label>
-                <input class="form-control" type="text" name="txteditorial"></input> 
+                <input class="form-control" type="text" name="txteditorial"value="{{old('txteditorial')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txteditorial')}}
                 </p>               
@@ -88,7 +88,7 @@
 
                 <div class="mb-3">
                 <label class="form-label fw-bold">EMAIL EDITORIAL</label>
-                <input class="form-control" type="email" name="txtemail"></input> 
+                <input class="form-control" type="email" name="txtemail" value="{{old('txtemail')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtemail')}}
                 </p>               

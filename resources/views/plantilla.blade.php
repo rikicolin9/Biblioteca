@@ -13,7 +13,9 @@
     .nav{
       background-color:rgb(200, 201, 152);
     }
-  
+    .a{
+      color: black;
+    }
   </style>
 </head>
 <body>
@@ -21,10 +23,10 @@
 <nav>
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link " href="{{route('principal')}}">Inicio</a>
+    <a class="nav-link {{request()->routeIs('principal')? 'text-danger fw-bold':''}}" href="{{route('principal')}}">Inicio</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{route('registrar')}}">Registro de Libros</a>
+    <a class="nav-link {{request()->routeIs('registrar')? 'text-success fw-bold':''}}" href="{{route('registrar')}}">Registro de Libros</a>
   </li>
 </ul>
 </nav>
@@ -32,6 +34,11 @@
 
 <div class="alert alert-warning text-center" role="alert">
 Library Reader Space CopyRight©
+@php
+ $mytime = Carbon\Carbon::now();
+echo $mytime->toDateString();   
+@endphp
+
 </div>
 
 
