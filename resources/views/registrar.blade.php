@@ -20,6 +20,7 @@
         color: rgb(167, 209, 100);
         font-family: inherit;
         font-size: 20px;
+        text-align: center;
     }
 
 </style>   
@@ -27,7 +28,7 @@
 
 <div class="container mt-8 col-md-8" >
     
-    <div class="card text-center mb-4">
+    <div class="card text-left mb-4">
         <div class="card-header fw-bold">
            <h2>Ingrese los datos que se solicitan </h2>
         </div>
@@ -37,7 +38,7 @@
                 @csrf 
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">ISBN</label>
+                <label class="form-label fw-bold">ISBN: </label>
                 <input class="form-control" type="text" name="txtisbn" value="{{old('txtisbn')}}"></input>
                     <p class="text-danger fst-italic">
                         {{$errors->first('txtisbn')}}
@@ -45,7 +46,7 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">TITULO</label>
+                <label class="form-label fw-bold">TITULO: </label>
                 <input class="form-control" type="text" name="txttitulo" value="{{old('txttitulo')}}"></input>
                 <p class="text-danger fst-italic">
                     {{$errors->first('txttitulo')}}
@@ -53,7 +54,7 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">AUTOR</label>
+                <label class="form-label fw-bold">AUTOR: </label>
                 <input class="form-control" type="text" name="txtautor" value="{{old('txtautor')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtautor')}}
@@ -61,7 +62,7 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">PAGINAS</label>
+                <label class="form-label fw-bold">PAGINAS:</label>
                 <input class="form-control" type="number" name="txtpaginas" value="{{old('txtpaginas')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtpaginas')}}
@@ -69,7 +70,7 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">EDITORIAL</label>
+                <label class="form-label fw-bold">EDITORIAL:</label>
                 <input class="form-control" type="text" name="txteditorial"value="{{old('txteditorial')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txteditorial')}}
@@ -77,7 +78,7 @@
                 </div>
 
                 <div class="mb-3">
-                <label class="form-label fw-bold">EMAIL EDITORIAL</label>
+                <label class="form-label fw-bold">EMAIL EDITORIAL:</label>
                 <input class="form-control" type="email" name="txtemail" value="{{old('txtemail')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtemail')}}
