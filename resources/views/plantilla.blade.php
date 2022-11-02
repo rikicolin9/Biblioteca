@@ -16,12 +16,20 @@
     .a{
       color: black;
     }
+
+    img{
+      width: 2%;
+      height: 2%;
+    }
   </style>
 </head>
 <body>
 
 <nav>
+   
 <ul class="nav nav-tabs">
+    <img src="/imgs/log.png" >  
+
   <li class="nav-item">
     <a class="nav-link {{request()->routeIs('principal')? 'text-danger fw-bold':''}}" href="{{route('principal')}}">Inicio</a>
   </li>

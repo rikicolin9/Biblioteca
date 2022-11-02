@@ -12,7 +12,7 @@
         font-family:inherit;
         font-size: 10px;
     }
-    img{
+    .uno{
         width: 30%;
         height: 30%;
     
@@ -30,8 +30,8 @@
         
             <div class="card-body">
                 <div class="d-flex justify-content-center">
-                   <img src="/imgs/imglibro1.jpg" >
-                   <img src="/imgs/imglibro2.jpg" >
+                   <img class="uno" src="/imgs/imglibro1.jpg" >
+                   <img class="uno" src="/imgs/imglibro2.jpg" >
                 </div>
                 
             <div class="container mt-3 cold-md-8">
@@ -41,8 +41,8 @@
                 </p>
 
                 <div class="d-flex justify-content-center">
-                    <img src="/imgs/imglibro3.jpg" >
-                    <img src="/imgs/imglibro4.jpg" >   
+                    <img class="uno" src="/imgs/imglibro3.jpg" >
+                    <img class="uno" src="/imgs/imglibro4.jpg" >   
                 </div>
                 <p class="text-justify">
                     Se trata de "Historias Perturbadoras", el segundo escrito hecho por el youtuber, 

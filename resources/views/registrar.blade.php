@@ -4,7 +4,7 @@
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Libro {{txttitulo}} agregado correctamente!',
+    'Realizado, Libro <?php echo request('txttitulo'); ?> agregado correctamente!',
     'Presiona para continuar!',
     'danger'
     )</script> "!!}    
