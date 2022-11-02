@@ -9,7 +9,9 @@ class ControladorViews extends Controller
 {
     //
     public function usarBiblioteca(ValidaLibro $req){
-        return redirect('Registro')->with('confirmacion','Guardado Correcto');
+        return redirect('Registro')
+        ->with('confirmacion','Guardado Correcto')
+        ->with('titulo',$req->txttitulo);
     }
 
     public function verPrincipal(){

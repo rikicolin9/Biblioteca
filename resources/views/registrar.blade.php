@@ -2,9 +2,13 @@
 
 @section('content')
 
+<?php
+$titul = session()->get('titulo')
+?>
+
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Libro <?php echo request('txttitulo'); ?> agregado correctamente!',
+    'Realizado, Libro {$titul} agregado correctamente!',
     'Presiona para continuar!',
     'danger'
     )</script> "!!}    
