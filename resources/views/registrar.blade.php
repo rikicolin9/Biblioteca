@@ -40,13 +40,27 @@ $titul = session()->get('titulo')
         <div class="card-body">
             <form class="mb-2" method="POST" action="{{route('libro.store')}}">
                 @csrf 
-                <div class="mb-3 d-flex text-align-center">
+{{--                 <div class="mb-3 d-flex text-align-center">
                     <label class="form-label fw-bold mx-2 my-2 ">Autor: </label>
                     <input class="form-control mx-2 my-2" type="text" name="txtautor" value="{{old('txtautor')}}"></input>
                         <p class="text-danger fst-italic">
                             {{$errors->first('txtautor')}}
                         </p>
-                    </div>
+                    </div> --}}
+                    
+                <div class="mb-3 d-flex text-align-center">
+                    <label class="form-label fw-bold mx-2 my-2 ">AUTOR: </label>
+                    <select class="custom-select" id="inputGroupSelect01" name="autor">
+                        <option selected disabled="disabled" value="">Autor</option>
+                            @foreach($consulAutores as $autor)
+                                <option value="{{$autor->idAutor}}"> {{$autor->nombre}}</option>
+                            @endforeach
+                      </select>
+                      <p class="text-danger fst-italic">
+                        {{$errors->first('autor')}}
+                    </p>
+                </div>
+                    
                 <div class="mb-3 d-flex text-align-center">
                 <label class="form-label fw-bold mx-2 my-2 ">ISBN: </label>
                 <input class="form-control mx-2 my-2" type="text" name="txtisbn" value="{{old('txtisbn')}}"></input>
@@ -61,14 +75,6 @@ $titul = session()->get('titulo')
                 <p class="text-danger fst-italic">
                     {{$errors->first('txttitulo')}}
                 </p>
-                </div>
-
-                <div class="mb-3 d-flex">
-                <label class="form-label fw-bold mx-2 my-2">AUTOR: </label>
-                <input class="form-control" type="text" name="txtautor" value="{{old('txtautor')}}"></input> 
-                <p class="text-danger fst-italic">
-                    {{$errors->first('txtautor')}}
-                </p>               
                 </div>
 
                 <div class="mb-3 d-flex">

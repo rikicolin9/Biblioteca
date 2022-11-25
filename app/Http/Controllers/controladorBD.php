@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidaLibro;
+use App\Http\Requests\validAutor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -16,14 +17,10 @@ class controladorBD extends Controller
 //Libros
     public function create()
     {
-        return view('registrar');
+    $consulAutores=DB::table('tb_autores')->get(); 
+        return view('registrar',compact('consulAutores'));
     }
-//Autores
-    public function createAutor()
-    {
-        return view('autores');
-    }
-    
+
     public function showLibros()
     {
         $consulLibros=DB::table('tb_libros')->get();
@@ -33,10 +30,9 @@ class controladorBD extends Controller
     public function store(ValidaLibro $req)
     {
         DB::table('tb_libros')->insert([
-            "id_autor"=>$req->input('txtautor'),
+            "id_autor"=>$req->input('autor'),
             "isbn"=>$req->input('txtisbn'),
             "titulo"=>$req->input('txttitulo'),
-            "autor"=>$req->input('txtautor'),
             "paginas"=>$req->input('txtpaginas'),
             "editorial"=>$req->input('txteditorial'),
             "email"=>$req->input('txtemail'),
@@ -47,6 +43,32 @@ class controladorBD extends Controller
         return redirect('libro/create')
         ->with('confirmacion','abc')
         ->with('titulo',$req->txttitulo);
+    }
+//Autores
+    public function createAutor()
+    {
+        return view('autores');
+    }
+
+    public function showAutores()
+    {
+        $consulAutores=DB::table('tb_autores')->get();
+        return view('consultaAutores',compact('consulAutores'));
+    }
+
+    public function storeAutores(validAutor $req)
+    {
+        DB::table('tb_autores')->insert([
+            "nombre"=>$req->input('txtnombres'),
+            "fecha"=>$req->input('txtfecha'),
+            "NoLibros"=>$req->input('txtnumero'),
+            "fecha"=>Carbon::now(),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+        return redirect('autor/create')
+        ->with('confirmacion','abc')
+        ->with('nombres',$req->txtnombres);
     }
 
     public function show($id)

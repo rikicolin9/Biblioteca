@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_autor')->nullable();
             $table->integer('isbn'); 
             $table->string('titulo');
-            $table->string('autor');
             $table->integer('paginas');
             $table->string('editorial');
             $table->string('email')->unique();

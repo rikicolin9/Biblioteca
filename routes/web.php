@@ -35,7 +35,14 @@ route::post('Libro',[controladorBD::class,'store'])->name('libro.store');
 route::get('libros',[controladorBD::class,'showLibros'])->name('libro.mostrar');
 
 /* ----------AUTORES---------- */
+//CREATED
 route::get('autor/create',[controladorBD::class,'createAutor'])->name('autor.create');
+
+//showLibros
+route::get('autores',[controladorBD::class,'showAutores'])->name('autores.mostrar');
+
+//STORE
+route::post('Autor',[controladorBD::class,'storeAutores'])->name('autor.store');
 
 
 

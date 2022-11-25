@@ -1,7 +1,18 @@
 @extends('plantilla')
 
 @section('content')
-                
+<?php
+$nomb = session()->get('nombres')
+?>
+
+@if (session()->has('confirmacion'))
+{!!"<script> Swal.fire(
+    'Correcto, Autor: {$nomb}, guardado correctamente!',
+    'Presiona para continuar!',
+    'success'
+    )</script> "!!}    
+@endif
+              
 <style>
     h1{
         color: rgb(212, 179, 89);
@@ -26,18 +37,17 @@
 
     <div class="card-body">
         
-        <form class="mb-2" method="POST" action="{{route('Autores.validaAutores')}}">
+        <form class="mb-2" method="POST" action="{{route('autor.store')}}">
 
             @csrf 
 
-
-            @if (session()->has('confirmacion'))
+{{--             @if (session()->has('confirmacion'))
             
             <div class="alert alert-primary" role="alert" >
                 Guardado correctamente
             </div>
          
-            @endif
+            @endif --}}
 
             <div class="mb-3 d-flex text-align-center">
             <label class="form-label fw-bold  ">NOMBRE COMPLETO: </label>

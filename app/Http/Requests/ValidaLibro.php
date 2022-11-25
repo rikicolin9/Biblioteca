@@ -24,9 +24,9 @@ class ValidaLibro extends FormRequest
     public function rules()
     {
         return [
+            'autor'=>'required',
             'txtisbn'=>'required|digits_between:5,9',
             'txttitulo'=>'required|String',
-            'txtautor'=>'required|String',
             'txtpaginas'=>'required|numeric',
             'txteditorial'=>'required|String',
             'txtemail'=>'required|String|email'

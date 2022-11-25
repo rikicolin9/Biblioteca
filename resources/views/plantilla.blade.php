@@ -41,6 +41,9 @@
   <li class="nav-item">
     <a class="nav-link {{request()->routeIs('autor.create')? 'text-danger fw-bold':''}}" href="{{route('autor.create')}}">Registro de Autores</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link {{request()->routeIs('autores.mostrar')? 'text-success fw-bold':''}}" href="{{route('autores.mostrar')}}">Consulta de Autores</a>
+  </li>
 </ul>
 </nav>
 @yield('content')
