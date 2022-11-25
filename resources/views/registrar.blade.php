@@ -8,12 +8,12 @@ $titul = session()->get('titulo')
 
 @if (session()->has('confirmacion'))
 {!!"<script> Swal.fire(
-    'Realizado, Libro {$titul} agregado correctamente!',
+    'Correcto, Libro: {$titul}, guardado correctamente!',
     'Presiona para continuar!',
-    'danger'
+    'success'
     )</script> "!!}    
 @endif
-
+ 
 <style>
     h1{
         color: rgb(104, 104, 224);
@@ -30,7 +30,7 @@ $titul = session()->get('titulo')
 </style>   
 <h1 class=" text-center mb-5 mt-5 fw-bold">REGISTRO DE LIBROS</h1>
 
-<div class="container mt-8 col-md-8" >
+<div class="container mt-6 col-md-6" >
     
     <div class="card text-left mb-4">
         <div class="card-header fw-bold">
@@ -38,59 +38,65 @@ $titul = session()->get('titulo')
         </div>
 
         <div class="card-body">
-            <form class="mb-2" method="POST" action="{{route('Bibliotecas.usarBiblioteca')}}">
+            <form class="mb-2" method="POST" action="{{route('libro.store')}}">
                 @csrf 
-
-                <div class="mb-3">
-                <label class="form-label fw-bold">ISBN: </label>
-                <input class="form-control" type="text" name="txtisbn" value="{{old('txtisbn')}}"></input>
+                <div class="mb-3 d-flex text-align-center">
+                    <label class="form-label fw-bold mx-2 my-2 ">Autor: </label>
+                    <input class="form-control mx-2 my-2" type="text" name="txtautor" value="{{old('txtautor')}}"></input>
+                        <p class="text-danger fst-italic">
+                            {{$errors->first('txtautor')}}
+                        </p>
+                    </div>
+                <div class="mb-3 d-flex text-align-center">
+                <label class="form-label fw-bold mx-2 my-2 ">ISBN: </label>
+                <input class="form-control mx-2 my-2" type="text" name="txtisbn" value="{{old('txtisbn')}}"></input>
                     <p class="text-danger fst-italic">
                         {{$errors->first('txtisbn')}}
                     </p>
                 </div>
 
-                <div class="mb-3">
-                <label class="form-label fw-bold">TITULO: </label>
+                <div class="mb-3 d-flex">
+                <label class="form-label fw-bold mx-2 my-2">TITULO: </label>
                 <input class="form-control" type="text" name="txttitulo" value="{{old('txttitulo')}}"></input>
                 <p class="text-danger fst-italic">
                     {{$errors->first('txttitulo')}}
                 </p>
                 </div>
 
-                <div class="mb-3">
-                <label class="form-label fw-bold">AUTOR: </label>
+                <div class="mb-3 d-flex">
+                <label class="form-label fw-bold mx-2 my-2">AUTOR: </label>
                 <input class="form-control" type="text" name="txtautor" value="{{old('txtautor')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtautor')}}
                 </p>               
                 </div>
 
-                <div class="mb-3">
-                <label class="form-label fw-bold">PAGINAS:</label>
+                <div class="mb-3 d-flex">
+                <label class="form-label fw-bold mx-2 my-2">PAGINAS:</label>
                 <input class="form-control" type="number" name="txtpaginas" value="{{old('txtpaginas')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtpaginas')}}
                 </p>               
                 </div>
 
-                <div class="mb-3">
-                <label class="form-label fw-bold">EDITORIAL:</label>
+                <div class="mb-3 d-flex">
+                <label class="form-label fw-bold mx-2 my-2">EDITORIAL:</label>
                 <input class="form-control" type="text" name="txteditorial"value="{{old('txteditorial')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txteditorial')}}
                 </p>               
                 </div>
 
-                <div class="mb-3">
-                <label class="form-label fw-bold">EMAIL EDITORIAL:</label>
-                <input class="form-control" type="email" name="txtemail" value="{{old('txtemail')}}"></input> 
+                <div class="mb-3 d-flex">
+                <label class="form-label fw-bold mx-2 my-2 ">EMAIL: </label>
+                <input class="form-control " type="email" name="txtemail" value="{{old('txtemail')}}"></input> 
                 <p class="text-danger fst-italic">
                     {{$errors->first('txtemail')}}
                 </p>               
                 </div>
 
         </div>
-        <div class="card-footer">
+        <div class="card-footer text-center">
                 <button type="submit" class="btn btn-danger">Guardar</button>
             </form>
         </div>
