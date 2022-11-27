@@ -1,7 +1,23 @@
 @extends('plantilla')
 
 @section('content')
-                
+    
+@if (session()->has('actualizacion'))
+{!!"<script> Swal.fire(
+    'Perfecto!',
+    'El Autor se ha actualizado!',
+    'success'
+    )</script> "!!}    
+@endif
+
+@if (session()->has('eliminacion'))
+{!!"<script> Swal.fire(
+    'Perfecto!',
+    'El Autor se ha elimando!',
+    'success'
+    )</script> "!!}    
+@endif 
+
 <style>
     h1{
         color: rgb(212, 179, 89);
@@ -30,10 +46,11 @@
                    <h5 class="card-text">No LIBROS: {{$consul->NoLibros}}</h5>
                 </div>
                 <div class="card-footer text-muted">
-                    <a href="#" class="btn btn-primary">
-                        Actualizar
+                    <a href="{{route('autores.edit',$consul->idAutor)}}" class="btn btn-primary">
+                        Editar
                     </a>
-                    <a href="#" class="btn btn-success">E</a>
+                    <a href="{{route('autor.show',$consul->idAutor)}}" class="btn btn-success">
+                        Eliminar</a>
                 </div>
             
             </div>

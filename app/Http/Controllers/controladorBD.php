@@ -44,6 +44,40 @@ class controladorBD extends Controller
         ->with('confirmacion','abc')
         ->with('titulo',$req->txttitulo);
     }
+
+    public function edit($id)
+    {
+        $consulAutores=DB::table('tb_autores')->get(); 
+        $consulActu=DB::table('tb_libros')->where('idLibro',$id)->first();
+        return view('editarLibros',compact('consulActu','consulAutores'));
+    }
+
+    public function updateLibro(ValidaLibro $req,$id)
+    {
+    DB::table('tb_libros')->where('idLibro',$id)->update([
+        "id_autor"=>$req->input('autor'),
+        "isbn"=>$req->input('txtisbn'),
+        "titulo"=>$req->input('txttitulo'),
+        "paginas"=>$req->input('txtpaginas'),
+        "editorial"=>$req->input('txteditorial'),
+        "email"=>$req->input('txtemail'),
+        "updated_at"=>Carbon::now()
+      ]);
+/*           abc no importa, solo se tiene que poner*/
+    return redirect('consultaLibros')->with('confirmacion','abc'); 
+    }
+
+    public function showLibro($id)
+    {
+        $consulElimina=DB::table('tb_libros')->where('idLibro',$id)->first();
+        return view('confirmaLibros',compact('consulElimina'));
+    }
+
+    public function destroyLibro($id)
+    {
+        DB::table('tb_libros')->where('idLibro',$id)->delete();
+        return redirect('libros')->with('eliminacion','abc'); 
+    }
 //Autores
     public function createAutor()
     {
@@ -71,36 +105,33 @@ class controladorBD extends Controller
         ->with('nombres',$req->txtnombres);
     }
 
-    public function show($id)
+    public function editAutor($id)
     {
-        //
+        $consulActu=DB::table('tb_autores')->where('idAutor',$id)->first();
+        return view('editarAutores',compact('consulActu'));
     }
 
-    public function edit($id)
+    public function updateAutor(validAutor $req,$id)
     {
-        //
+    DB::table('tb_autores')->where('idAutor',$id)->update([
+        "nombre"=>$req->input('txtnombres'),
+        "fecha"=>$req->input('txtfecha'),
+        "NoLibros"=>$req->input('txtnumero'),
+        "updated_at"=>Carbon::now()
+      ]);
+/*           abc no importa, solo se tiene que poner*/
+    return redirect('consultaAutores')->with('confirmacion','abc'); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function showAutor($id)
     {
-        //
+        $consulElimina=DB::table('tb_autores')->where('idAutor',$id)->first();
+        return view('confirmaAutores',compact('consulElimina'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroyAutor($id)
     {
-        //
+        DB::table('tb_autores')->where('idAutor',$id)->delete();
+        return redirect('autores')->with('eliminacion','abc'); 
     }
 }

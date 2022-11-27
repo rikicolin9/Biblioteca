@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controladorBD;
 use App\Http\Controllers\ControladorViews;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,18 @@ route::post('Libro',[controladorBD::class,'store'])->name('libro.store');
 //showLibros
 route::get('libros',[controladorBD::class,'showLibros'])->name('libro.mostrar');
 
+//Edit
+Route::get('libro/{id}/edit',[controladorBD::class,'edit'])->name('libros.edit');
+
+//Edit:update la ruta put es para actualizacion 
+Route::put('libro/{id}',[controladorBD::class,'updateLibro'])->name('libros.update');
+
+//eliminar
+Route::get('libro/{id}/show', [controladorBD::class,'showLibro'])->name('libro.show');
+
+//destroy
+Route::put('libro/{id}', [controladorBD::class,'destroyLibro'])->name('libro.destroy');
+
 /* ----------AUTORES---------- */
 //CREATED
 route::get('autor/create',[controladorBD::class,'createAutor'])->name('autor.create');
@@ -42,9 +55,19 @@ route::get('autor/create',[controladorBD::class,'createAutor'])->name('autor.cre
 route::get('autores',[controladorBD::class,'showAutores'])->name('autores.mostrar');
 
 //STORE
-route::post('Autor',[controladorBD::class,'storeAutores'])->name('autor.store');
+route::post('autor',[controladorBD::class,'storeAutores'])->name('autor.store');
 
+//Edit
+Route::get('autor/{id}/edit',[controladorBD::class,'editAutor'])->name('autores.edit');
 
+//Edit:update la ruta put es para actualizacion 
+Route::put('autor/{id}',[controladorBD::class,'updateAutor'])->name('autores.update');
+
+//eliminar
+Route::get('autor/{id}/show', [controladorBD::class,'showAutor'])->name('autor.show');
+
+//destroy
+Route::put('autor/{id}', [controladorBD::class,'destroyAutor'])->name('autor.destroy');
 
 route::view('Autores','autores')->name('autores');
 
