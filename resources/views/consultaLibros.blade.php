@@ -1,10 +1,14 @@
 @extends('plantilla')
 
 @section('content')
+<?php
+$titul = session()->get('titulo')
+?>
+
 @if (session()->has('actualizacion'))
 {!!"<script> Swal.fire(
     'Perfecto!',
-    'Tu libro se ha actualizado!',
+    'El Libro: {$titul}, se ha actualizado!',
     'success'
     )</script> "!!}    
 @endif

@@ -45,7 +45,7 @@ Route::put('libro/{id}',[controladorBD::class,'updateLibro'])->name('libros.upda
 Route::get('libro/{id}/show', [controladorBD::class,'showLibro'])->name('libro.show');
 
 //destroy
-Route::put('libro/{id}', [controladorBD::class,'destroyLibro'])->name('libro.destroy');
+Route::put('libros/{id}', [controladorBD::class,'destroyLibro'])->name('libro.destroy');
 
 /* ----------AUTORES---------- */
 //CREATED
@@ -67,7 +67,7 @@ Route::put('autor/{id}',[controladorBD::class,'updateAutor'])->name('autores.upd
 Route::get('autor/{id}/show', [controladorBD::class,'showAutor'])->name('autor.show');
 
 //destroy
-Route::put('autor/{id}', [controladorBD::class,'destroyAutor'])->name('autor.destroy');
+Route::put('autores/{id}', [controladorBD::class,'destroyAutor'])->name('autor.destroy');
 
 route::view('Autores','autores')->name('autores');
 

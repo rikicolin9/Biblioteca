@@ -50,7 +50,7 @@ $titul = session()->get('titulo')
                     
                 <div class="mb-3 d-flex text-align-center">
                     <label class="form-label fw-bold mx-2 my-2 ">AUTOR: </label>
-                    <select class="custom-select" id="inputGroupSelect01" name="autor">
+                    <select class="custom-select form-control" id="inputGroupSelect01" name="autor">
                         <option selected disabled="disabled" value="">Autor</option>
                             @foreach($consulAutores as $autor)
                                 <option value="{{$autor->idAutor}}"> {{$autor->nombre}}</option>

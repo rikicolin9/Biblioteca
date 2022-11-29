@@ -64,7 +64,8 @@ class controladorBD extends Controller
         "updated_at"=>Carbon::now()
       ]);
 /*           abc no importa, solo se tiene que poner*/
-    return redirect('consultaLibros')->with('confirmacion','abc'); 
+    return redirect('libros')->with('actualizacion','abc')
+    ->with('titulo',$req->txttitulo); 
     }
 
     public function showLibro($id)
@@ -120,7 +121,8 @@ class controladorBD extends Controller
         "updated_at"=>Carbon::now()
       ]);
 /*           abc no importa, solo se tiene que poner*/
-    return redirect('consultaAutores')->with('confirmacion','abc'); 
+    return redirect('autores')->with('actualizacion','abc')
+    ->with('nombres',$req->txtnombres);
     }
 
     public function showAutor($id)
