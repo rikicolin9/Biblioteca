@@ -27,7 +27,7 @@ return new class extends Migration
                 ->references("idAutor")
                 ->on("tb_autores")
                 ->onUpdate("cascade")
-                ->onDelete("set null");
+                ->onDelete("cascade");
 
         });
     }

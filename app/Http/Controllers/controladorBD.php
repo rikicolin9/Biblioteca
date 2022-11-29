@@ -24,6 +24,14 @@ class controladorBD extends Controller
     public function showLibros()
     {
         $consulLibros=DB::table('tb_libros')->get();
+
+        foreach($consulLibros as $libro){
+            if($libro->id_autor != null){
+            $libro->autor = DB::table('tb_autores')->select(['idAutor', 'nombre'])->where('idAutor', $libro->id_autor)->first();
+        }else{
+            $libro->autor =(object)['nombre'=>'No existe' ];
+        }
+        }
         return view('consultaLibros',compact('consulLibros'));
     }
 

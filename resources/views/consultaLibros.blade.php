@@ -36,16 +36,13 @@ $titul = session()->get('titulo')
 </style>            
 <h1 class=" text-center mb-5 mt-5 fw-bold">CONSULTA DE LIBROS</h1>
     @foreach($consulLibros as $consul)
-
-
         <div class="container col-md-6" >
-
             <div class="card text-center">
                 <div class="card-header fw-bold">
                     <h5 class="text-primary text-center">{{$consul->titulo}}</h5>
                 </div>
                 <div class="card-body">
-                   <h5 class="card-text" >ESCRITOR/A: {{$consul->id_autor}}</h5>
+                   <h5 class="card-text" >ESCRITOR/A: {{$consul->autor->nombre}}</h5>
                    <h5 class="card-text">EDITORIAL: {{$consul->editorial}}</h5>
                 </div>
                 <div class="card-footer text-muted">
